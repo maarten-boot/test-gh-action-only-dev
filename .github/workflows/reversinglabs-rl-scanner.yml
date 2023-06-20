@@ -58,6 +58,7 @@ jobs:
           report-path: "My-Report-Dir"
 
       - name: verbose show report
+        if: success() || failure()
         shell: bash
         run: |
           ls -la
