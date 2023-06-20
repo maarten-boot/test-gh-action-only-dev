@@ -14,10 +14,6 @@ jobs:
     permissions:
       statuses: write
       pull-requests: write
-      # the next 3 for sarif upload
-      security-events: write
-      actions: read
-      contents: read
 
     steps:
       # -------------------------------------
