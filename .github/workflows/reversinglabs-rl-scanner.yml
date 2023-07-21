@@ -46,8 +46,8 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        # uses: reversinglabs/gh-action-rl-scanner-simple@b0e7689b54df80bbb8a4af16b5f6c3dfc527240e # v1.0.0
-        uses: maarten-boot/gh-action-rl-scanner-simple@v1.0.10
+        # uses: maarten-boot/gh-action-rl-scanner-simple@v1.0.10
+        uses: reversinglabs/gh-action-rl-scanner-simple@v1.0.1
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: "My_Report_Dir"
