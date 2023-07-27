@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  ReportDirectory: MyReportDir
+  
 jobs:
   checkout-build-scan-simple:
     runs-on: ubuntu-latest
@@ -49,11 +52,11 @@ jobs:
         uses: reversinglabs/gh-action-rl-scanner-only@v1
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
-          report-path: "My_Report_Dir"
+          report-path: ${{ env.ReportDirectory }}
 
       - name: verbose show report
         if: success() || failure()
         shell: bash
         run: |
           ls -la
-          ls -l 'My_Report_Dir'
+          ls -l $(ReportDirectory)
