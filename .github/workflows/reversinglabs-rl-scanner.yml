@@ -1,5 +1,5 @@
-name: test simple
-run-name: test simple only
+name: test scanner only
+run-name: test scanner only
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     steps:
       # -------------------------------------
       # we will have to checkout data before we can do anything
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
+      - uses: actions/checkout@v3
 
       # -------------------------------------
       # build someting, replace this with your build process
@@ -46,7 +46,7 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        uses: reversinglabs/gh-action-rl-scanner-simple@v1
+        uses: reversinglabs/gh-action-rl-scanner-only@v1
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: "My_Report_Dir"
