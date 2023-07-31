@@ -31,4 +31,3 @@ jobs:
           release_name: Release ${{ env.MYTAG }}
           body: |
               See the Readme
-
