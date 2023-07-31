@@ -13,14 +13,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
+      - name: determine tag by splitting branch name on slash
+        id: get-tag
+        shell: bash
+        run: |
+          split=(${GITHUB_REF_NAME//\// })
+          index=$((${#split[@]}-1))
+          MYTAG=${split[$index]}
+          echo MYTAG=$MYTAG >> $GITHUB_ENV
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ env.MYTAG }}
+          release_name: Release ${{ env.MYTAG }}
           body: |
               See the Readme
 
