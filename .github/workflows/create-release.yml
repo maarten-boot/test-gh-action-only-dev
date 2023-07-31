@@ -23,6 +23,3 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
               See the Readme
-
-        draft: false
-        prerelease: false
