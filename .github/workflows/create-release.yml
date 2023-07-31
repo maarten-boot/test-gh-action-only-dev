@@ -24,5 +24,3 @@ jobs:
           body: |
               See the Readme
 
-        draft: false
-        prerelease: false
