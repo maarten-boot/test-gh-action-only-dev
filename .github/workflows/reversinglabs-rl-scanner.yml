@@ -49,13 +49,13 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.14
+        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.15
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: ${{ env.ReportDirectory }}
           rl-verbose: true
           rl-store: /mount/nfs/rl-store
-          rl-package-url: mboot/test-gh-action-only-dev@v1.0.14
+          rl-package-url: mboot/test-gh-action-only-dev@v1.0.15
           #rl-proxy-port: 3128
           #rl-proxy-server: proxy-us.rl.lan
 
