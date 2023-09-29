@@ -49,14 +49,23 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.2
+        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.11
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: ${{ env.ReportDirectory }}
 
-      - name: verbose show report
-        if: success() || failure()
+      - name: verbose show Succ
+        if: success()
         shell: bash
         run: |
+          echo "SUCCESS"
           ls -la
-          ls -l $(ReportDirectory)
+          ls -l ${{ env.ReportDirectory }}
+
+      - name: verbose show report Fail
+        if: failure()
+        shell: bash
+        run: |
+          echo "FAILURE"
+          ls -la
+          ls -l ${{ env.ReportDirectory }}
