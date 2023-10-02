@@ -49,13 +49,13 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.18
+        uses: maarten-boot/gh-action-rl-scanner-only-dev@v1.0.19
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: ${{ env.ReportDirectory }}
           rl-verbose: true
           rl-store: /mount/nfs/rl-store
-          rl-package-url: mboot/test-gh-action-only-dev@v1.0.18
+          rl-package-url: mboot/test-gh-action-only-dev@v1.0.19
           rl-diff-with: v1.0.16
           rl-proxy-port: 8080
           rl-proxy-server: alt-win-proxy.rl.lan
@@ -77,3 +77,10 @@ jobs:
           echo "FAILURE"
           ls -la
           ls -l ${{ env.ReportDirectory }}
+      
+      - name: Archive the report
+        if: success() || failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: ${{ inputs.report-path }}
