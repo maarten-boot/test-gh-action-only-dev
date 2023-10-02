@@ -56,8 +56,10 @@ jobs:
           rl-verbose: true
           rl-store: /mount/nfs/rl-store
           rl-package-url: mboot/test-gh-action-only-dev@v1.0.16
-          #rl-proxy-port: 3128
-          #rl-proxy-server: proxy-us.rl.lan
+          rl-proxy-port: 8080
+          rl-proxy-server: alt-win-proxy.rl.lan
+          rl-proxy-user: user1
+          rl-proxy-password: pero123
 
       - name: verbose show Succ
         if: success()
