@@ -83,4 +83,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: report
-          path: ${{ inputs.report-path }}
+          path: ${{ env.ReportDirectory }}
