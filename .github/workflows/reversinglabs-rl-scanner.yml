@@ -59,7 +59,7 @@ jobs:
           rl-proxy-port: 8080
           rl-proxy-server: alt-win-proxy.rl.lan
           rl-proxy-user: user1
-          rl-proxy-password: pero1234
+          rl-proxy-password: pero123
 
       - name: verbose show Succ
         if: success()
